@@ -31,9 +31,9 @@ class UI {
     `;
   }
   showRepos(repos) {
-    let output;
-    console.log(repos);
+    let output = '';
     repos.forEach(repo => {
+      console.log(repo);
       output += `
         <div class="card card-body mb-2">
           <div class="row">
@@ -43,15 +43,17 @@ class UI {
             <div class="col-md-6">
               <span class="badge badge-primary">Stars: ${repo.stargazers_count}</span>
               <span class="badge badge-secondary">Watchers: ${repo.watchers_count}</span>
-              <span class="badge badge-success">Forks: ${repo.forms_cout}</span>
+              <span class="badge badge-success">Forks: ${repo.forks_count}</span>
             </div>
           </div>
         </div>
       `
     });
+
+    document.querySelector('#repos').innerHTML = output;
   }
   clearAlert() {
-    const currentAlert = document.querySelector('.alert');  
+    const currentAlert = document.querySelector('.alert');
     if (currentAlert) {
       currentAlert.remove();
     }
