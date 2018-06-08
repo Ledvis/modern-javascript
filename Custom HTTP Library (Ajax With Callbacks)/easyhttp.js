@@ -3,7 +3,7 @@ function EasyHTTP() {
 }
 
 // Make an HTTP GET request
-easyHTTP.prototype.get = function(url, callback) {
+EasyHTTP.prototype.get = function(url, callback) {
   this.http.open('GET', url, true);
   const self = this;
   this.http.onload = function() {
@@ -17,7 +17,7 @@ easyHTTP.prototype.get = function(url, callback) {
 }
 
 // Make an HTTP POSTS request
-easyHTTP.prototype.post = function(url, data, callback) {
+EasyHTTP.prototype.post = function(url, data, callback) {
   this.http.open('POST', url, true);
   this.http.setRequestHeader('Content-type', 'application/json');
   
@@ -29,7 +29,7 @@ easyHTTP.prototype.post = function(url, data, callback) {
 }
 
 // Make an HTTP PUT request
-easyHTTP.prototype.put = function(url, data, callback) {
+EasyHTTP.prototype.put = function(url, data, callback) {
   this.http.open('PUT', url, true);
   this.http.setRequestHeader('Content-type', 'application/json');
   
@@ -41,7 +41,7 @@ easyHTTP.prototype.put = function(url, data, callback) {
 }
 
 // Make an HTTP DELETE request
-easyHTTP.prototype.delete = function(url, callback) {
+EasyHTTP.prototype.delete = function(url, callback) {
   this.http.open('DELETE', url, true);
   const self = this;
   this.http.onload = function() {
