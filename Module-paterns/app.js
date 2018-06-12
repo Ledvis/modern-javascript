@@ -1,6 +1,6 @@
 // * Standard module pattern
 const UICtrl = (function() {
-  const text = 'Hello, Wordl!';
+  const text = 'Hello, World!';
 
   function changeText() {
     document.querySelector('h1').textContent = text;
