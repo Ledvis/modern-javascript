@@ -32,6 +32,25 @@ const ItemCtrl = (function() {
       data.items.push(newItem);
       return newItem;
     },
+    updateItem: function(meal, calories) {
+      let requestedItem = null;
+      let requestedId = data.currentItem.id;
+      data.items.forEach(item => {
+        if (item.id === requestedId) {
+          item.meal = meal;
+          item.calories = calories;
+          requestedItem = item;
+        }
+      });
+      return requestedItem;
+    },
+    deleteItem: function(id) {
+      const itemsId = data.items.map(item => {
+        return item.id;
+      });
+      const index = itemsId.indexOf(id);
+      data.items.splice(index, 1);
+    },
     getTotalCalories: function() {
       let total = 0;
 
@@ -57,6 +76,9 @@ const ItemCtrl = (function() {
     },
     getCurrentItem: function() {
       return data.currentItem;
+    },
+    clearAllItems: function() {
+      data.items = [];
     }
   }
 })();
