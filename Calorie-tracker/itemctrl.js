@@ -7,11 +7,7 @@ const ItemCtrl = (function() {
 
   // Data Structure / State
   const data = {
-    items: [
-      // {id: 0, meal: 'Steak Dinner', calories: 1200},
-      // {id: 1, meal: 'Cookies', calories: 400},
-      // {id: 2, meal: 'Eggs', calories: 300},
-    ],
+    items: [],
     currentItem: null,
     totalCalories: 0
   };
@@ -35,6 +31,32 @@ const ItemCtrl = (function() {
       const newItem = new Item(id, meal, calories);
       data.items.push(newItem);
       return newItem;
+    },
+    getTotalCalories: function() {
+      let total = 0;
+
+      data.items.forEach(item => {
+        total += parseInt(item.calories);
+      });
+
+      return total;
+    },
+    getItemById: function(id) {
+      let requestedItem;
+
+      data.items.forEach(item => {
+        if (item.id === id) {
+          requestedItem = item;
+        }
+      });
+
+      return requestedItem;
+    },
+    setCurrentItem: function(item) {
+      data.currentItem = item;
+    },
+    getCurrentItem: function() {
+      return data.currentItem;
     }
   }
 })();
