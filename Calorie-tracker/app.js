@@ -7,7 +7,7 @@ const App = (function() {
       UICtrl.addListItem(newItem);
       const totalCalories = ItemCtrl.getTotalCalories();
       UICtrl.showTotalCalories(totalCalories);
-      Store.storeItem(newItem);
+      StorageCtrl.setItemToStorage(newItem);
       UICtrl.clearInput();
     }
   }
@@ -33,6 +33,7 @@ const App = (function() {
       UICtrl.updateListItem(updatedItem);
       const totalCalories = ItemCtrl.getTotalCalories();
       UICtrl.showTotalCalories(totalCalories);
+      StorageCtrl.updateItemInStorage(updatedItem);
       UICtrl.clearEditState();
     }
   }
@@ -44,6 +45,7 @@ const App = (function() {
     UICtrl.deleteListItem(itemId);
     const totalCalories = ItemCtrl.getTotalCalories();
     UICtrl.showTotalCalories(totalCalories);
+    StorageCtrl.deleteItemFromStorage(itemId);
     UICtrl.clearEditState();
     if (totalCalories === 0) {
       UICtrl.hideList();
@@ -55,6 +57,7 @@ const App = (function() {
     UICtrl.removeListItems();
     const totalCalories = ItemCtrl.getTotalCalories();
     UICtrl.showTotalCalories(totalCalories);
+    StorageCtrl.clearItemsFromStorage();
     UICtrl.clearEditState();
     if (totalCalories === 0) {
       UICtrl.hideList();
@@ -99,6 +102,6 @@ const App = (function() {
       fireEvents();
     },
   }
-})(ItemCtrl, UICtrl, Store);
+})();
 
 App.init();
