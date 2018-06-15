@@ -7,6 +7,7 @@ const App = (function() {
       UICtrl.addListItem(newItem);
       const totalCalories = ItemCtrl.getTotalCalories();
       UICtrl.showTotalCalories(totalCalories);
+      Store.storeItem(newItem);
       UICtrl.clearInput();
     }
   }
@@ -98,6 +99,6 @@ const App = (function() {
       fireEvents();
     },
   }
-})(ItemCtrl, UICtrl);
+})(ItemCtrl, UICtrl, Store);
 
 App.init();
